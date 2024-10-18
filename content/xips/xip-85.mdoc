@@ -1,1 +1,70 @@
+---
+title: Re-allocate unclaimed GP to active users
+id: 85
+author: dchu (@rugpulled)
+type: community
+network: base
+status: Draft
+created: '2024-10-18'
+---
+# Proposal Summary
 
+Infinex has airdropped a total of XX Governance Points (GP) to various communities and holders of specific NFTs. The amount of GP claimable by each address is linear to the total GP allocated to that community and the percentage of the community's supply that the user accounts for. This XIP proposes that any unclaimed points after 2 weeks should instead be redistributed among community members who did claim their allocation, ensuring more benefits for active participants.
+
+# Specification
+
+## Overview
+In prior XIPs, Infinex established an airdrop for Kerng Lernitas, Pudgy Penguin, Milady Maker, Bit Bears, Mad Lads, ARC Community, Staked Sappy Seals, Pythians, Active Crypto Testors and Ser DAO community members, which included the following criteria:
+
+"Recipients of the communities airdrop are required to sign up for an Infinex account, deposit at least 50 USDC into their account. Once STW/Craterun ends, users will be able to connect and verify their wallets which holds their NFTs, and then claim their GP directly into the Infinex account."
+
+Infinex has airdropped a total of 104,116,400 Governance Points (GP) to these communities and holders of specific NFTs. The amount of GP claimable by each address is linear to the total GP allocated to that community and the percentage of the community's supply that the user accounts for. 
+
+ While any unclaimed GP was initially planned to remain idle in its pool until it was claimed, this XIP proposes that these unclaimed points should instead be redistributed among those who did claim their allocation, ensuring more benefits for active participants.
+
+
+## Rationale
+An analysis of the GP airdrop to various communities reveals that the majority of holders have not claimed their allocated GP. It's also unlikely that they fulfilled the requirement of depositing $50 into their Infinex balance during STW or Craterun. As a result, only about 1% of the allocated GP has been claimed, with the remainder likely to remain unclaimed for an extended period.
+
+This low participation rate also dilutes the rewards for active participants, as the large number of eligible holders results in minimal allocations for those who did claim. For example, each Pudgy Penguin holder received an airdrop of 2,200 GP per NFT held—just 1.1% of what’s required for a Patron NFT.
+
+The purpose of an airdrop is to attract potential users and convert them into active participants within the Infinex ecosystem. Leaving GP unclaimed by inactive users offers no value. Instead, this GP should be reallocated to community members who are actively engaged with Infinex, ensuring that those who contribute to the ecosystem benefit from the distribution.
+
+Moreover, redistributing the unclaimed GP could generate more engagement and virality than the current distribution, as history shows that those who miss out often regret it. For instance, during the Celestia Genesis event, only 30% of eligible wallets claimed their allocation. After some time, the remaining unclaimed GP was redistributed among the active participants, tripling their allocations. This not only rewarded active participants but also served as a reminder for others to be more attentive in future campaigns.
+
+Redistributing unclaimed GP to active community members would likely lead to more conversions to Patrons. If the total GP allocated to these communities were claimed, it could potentially create 520 new Patrons (0.52% of the total supply). By increasing the number of circulating Patrons, more active participants would have access to the benefits, rather than leaving these assets dormant in unclaimed pools.
+
+
+## Technical Specification
+This technical specification outlines the process for redistributing unclaimed Governance Points (GP) to active members of the following communities: Kerng Lernitas, Pudgy Penguin, Milady Maker, Bit Bears, Mad Lads, ARC Community, Staked Sappy Seals, Pythians, Active Crypto Testers, and Ser DAO. Each community will have its own distinct GP pool, and the redistribution of unclaimed GP will occur separately within each pool to ensure no overlap between communities.
+
+1. Initial GP Allocation per Collection
+- Initial GP Allocation: Each community or NFT collection has a designated GP pool. For example, the Pudgy Penguin community is allocated 19,553,600 GP, and there are 8,888 Pudgy Penguins in total.
+- Eligible Holders: The total supply of NFTs or eligible addresses for each community will be recorded. In the case of Pudgy Penguins, each holder can claim a proportional share of the 19,553,600 GP based on the number of NFTs they hold.
+- Initial Distribution: Each eligible NFT holder will receive an allocation of GP proportional to their NFT holdings. For example, each Pudgy Penguin NFT would be entitled to 2,200 GP (19,553,600 GP / 8,888 NFTs).
+
+2. Unclaimed GP Tracking
+- If the Pudgy Penguin community has 19,553,600 GP allocated and only 10% is claimed, then 1,955,360 GP will have been claimed, leaving 17,598,240 GP unclaimed.
+
+3.  Eligibility for Redistribution
+- Active Participants: Only users who have successfully claimed their initial GP allocation within the set claim period will be eligible for redistribution.
+- Claim Period: The claim period for redistribution eligibility will be 7 days. After this period, no further initial claims will be allowed, and only those who claimed within this period will participate in the redistribution of unclaimed GP.
+- Proportional Redistribution: Users who have claimed their GP will be entitled to a share of the unclaimed GP based on the amount they initially claimed. The larger the initial claim, the greater their share of the unclaimed GP.
+
+4.  Redistribution Formula
+The unclaimed GP will be redistributed proportionally to users who claimed their initial GP allocation using the following formula:
+Redistributed GP = (User’s Claimed GP / Total Claimed GP) * Unclaimed GP
+Where:
+- User’s Claimed GP is the amount of GP the user originally claimed.
+- Total Claimed GP is the total GP claimed by all users during the 7-day claim period.
+- Unclaimed GP is the amount of GP that remains unclaimed after the claim period ends.
+Example:
+
+- Suppose the Pudgy Penguins community has 19,553,600 GP, and only 1,955,360 GP has been claimed within the 7-day period, leaving 17,598,240 GP unclaimed.
+- A user who initially claimed 22,000 GP (holding 10 Pudgy Penguins) would have claimed 1.125% of the total claimed GP (22,000 / 1,955,360).
+- This user will be entitled to 1.125% of the remaining unclaimed GP, which equals 198,480.3 GP (1.125% of 17,598,240 GP).
+
+This will be done for each collections pool separately.
+# Copyright
+
+Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
